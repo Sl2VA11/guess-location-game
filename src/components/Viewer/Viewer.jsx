@@ -5,57 +5,69 @@ import style from "./Viewer.module.scss";
 // Importing helper functions
 import { initializeViewer } from "../../helpers/map/initializeViewer";
 import { removeFirstMapillaryDom } from "../../helpers/map/removeFirstMapillaryDom";
-import { handleClickPosition } from "../../helpers/handleClickPosition";
+import { assignRandomCurrentSteps } from "../../helpers/assignRandomCurrentSteps";
+import { initialCoordinatesEasyLevel } from "../../levels/easy-level";
 import { isLocationInCountry } from "../../api/fetchImageMetadata";
-import { coordinatesEasyLevel } from "../../levels/easy-level";
 
 // Importing components
 import { MapComponent } from "../MapComponent/MapComponent";
 import { ModalConfirm } from "../ModalConfirm/ModalConfirm";
+import { ModalAnswerResult } from "../ModalAnswerResult/ModalAnswerResult";
+
 
 export function Viewer() {
- const [isOpenMap, setIsOpenMap] = useState(false);
- const [isOpenModal, setIsOpenModal] = useState(false);
- const [clickedPosition, setClickedPosition] = useState(null);
- const [acceptAnswer, setAcceptAnswer] = useState(null);
- const [currentStepEasy, setCurrentStepEasy] = useState("first");
- const [currentStepData, setCurrentStepData] = useState(null);
- const containerRef = useRef(null);
+  const [isOpenMap, setIsOpenMap] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [clickedPosition, setClickedPosition] = useState(null);
+  const [acceptAnswer, setAcceptAnswer] = useState(null);
+  const [currentStepEasy, setCurrentStepEasy] = useState(1);
+  const [currentStepData, setCurrentStepData] = useState(null);
+  const [isAnswerCurrent, setIsAnswerCurrent] = useState(null);
+  const containerRef = useRef(null);
+  const [coordinatesEasyLevel, setCoordinatesEasyLevel] = useState(
+    initialCoordinatesEasyLevel
+  );
 
- const currentStepDataMemo = useMemo(() => {
-   let data = null;
-   coordinatesEasyLevel.forEach(({ currentStep, country, imageId }) => {
-     if (currentStep === currentStepEasy) {
-       data = { currentStep, country, imageId };
-     }
-   });
-   return data;
- }, [currentStepEasy]);
+  useEffect(() => {
+    setCoordinatesEasyLevel(
+      assignRandomCurrentSteps(initialCoordinatesEasyLevel)
+    );
+  }, []);
 
- useEffect(() => {
-   setCurrentStepData(currentStepDataMemo);
- }, [currentStepDataMemo]);
+  const currentStepDataMemo = useMemo(() => {
+    let data = null;
 
- useEffect(() => {
-   if (acceptAnswer && currentStepData) {
-     handleClickPosition(
-       clickedPosition,
-       isLocationInCountry,
-       currentStepData.country
-     );
-   }
- }, [acceptAnswer, clickedPosition, currentStepData]);
+    coordinatesEasyLevel.forEach(({ currentStep, country, imageId }) => {
+      if (currentStep !== currentStepEasy) {
+        return;
+      }
+      data = { currentStep, country, imageId };
+    });
+    return data;
+  }, [coordinatesEasyLevel, currentStepEasy]);
 
- useEffect(() => {
-   if (containerRef.current && currentStepData) {
-     initializeViewer(currentStepData.imageId, containerRef.current);
-   }
- }, [containerRef, currentStepData]);
+  useEffect(() => {
+    setCurrentStepData(currentStepDataMemo);
+  }, [currentStepDataMemo]);
 
- useEffect(() => {
-   removeFirstMapillaryDom();
- }, []);
+  useEffect(() => {
+    if (acceptAnswer && currentStepData) {
+      console.log(currentStepData);
+      const { lat, lng } = clickedPosition;
 
+      isLocationInCountry(lat, lng, currentStepData.country).then((result) =>
+        setIsAnswerCurrent(result)
+      );
+    }
+  }, [acceptAnswer, clickedPosition, currentStepData]);
+
+  useEffect(() => {
+    if (containerRef.current && currentStepData) {
+      console.log(currentStepData);
+      initializeViewer(currentStepData.imageId, containerRef.current);
+    }
+    removeFirstMapillaryDom();
+  }, [containerRef, currentStepData]);
 
   return (
     <div>
@@ -71,6 +83,7 @@ export function Viewer() {
       >
         open map
       </button>
+
       {isOpenMap && (
         <MapComponent
           setIsOpenMap={setIsOpenMap}
@@ -87,6 +100,15 @@ export function Viewer() {
           setAcceptAnswer={setAcceptAnswer}
         />
       )}
+
+      {acceptAnswer && isAnswerCurrent !== null ? (
+        <ModalAnswerResult
+          setCurrentStepEasy={setCurrentStepEasy}
+          setAcceptAnswer={setAcceptAnswer}
+          isAnswerCurrent={isAnswerCurrent}
+          setIsAnswerCurrent={setIsAnswerCurrent}
+        />
+      ) : null}
     </div>
   );
 }

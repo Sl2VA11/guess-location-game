@@ -9,8 +9,7 @@ export const MapComponent = ({
   setIsOpenModal,
   clickedPosition,
   setClickedPosition,
-  handleClickPosition,
-  acceptAnswer,
+ 
 }) => {
   // const [clickedPosition, setClickedPosition] = useState(null);
   const [fullMapScreen, setFullMapScreen] = useState(false);
