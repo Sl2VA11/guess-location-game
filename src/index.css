@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.mapillary-bearing-indicator-container{
+  display:none;
+}
+
+.camera-cursor {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+  z-index: 9999;
+   pointer-events: none;
+}
+
+
+.camera-cursor.disabled {
+  background-color: rgba(255, 0, 0, 0.6);
+}

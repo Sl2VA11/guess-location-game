@@ -1,0 +1,15 @@
+.mapContainer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.mapContainerFull {
+  height: 100vh;
+  width: 100%;
+}
+.mapContainerSmall {
+  height: 300px;
+  width: 30%;
+}
