@@ -1,11 +1,9 @@
 // Importing libraries and components
-import { useEffect, useMemo, useRef, useState } from "react";
+import {useEffect, useRef, useState } from "react";
 import style from "./Viewer.module.scss";
 
 // Importing helper functions
-import { initializeViewer } from "../../helpers/map/initializeViewer";
-import { removeFirstMapillaryDom } from "../../helpers/map/removeFirstMapillaryDom";
-import { assignRandomCurrentSteps } from "../../helpers/assignRandomCurrentSteps";
+
 import { initialCoordinatesEasyLevel } from "../../levels/easy-level";
 import { isLocationInCountry } from "../../api/fetchImageMetadata";
 
@@ -13,38 +11,31 @@ import { isLocationInCountry } from "../../api/fetchImageMetadata";
 import { MapComponent } from "../MapComponent/MapComponent";
 import { ModalConfirm } from "../ModalConfirm/ModalConfirm";
 import { ModalAnswerResult } from "../ModalAnswerResult/ModalAnswerResult";
+import { initialCoordinatesMediumLevel } from "../../levels/medium-level";
+import { useCoordinates } from "../../hooks/useCoordinates";
+import { useCurrentStepData } from "../../hooks/useCurrentStepData";
+import { useViewerInitialization } from "../../hooks/useViewerInitialization";
 
-
-export function Viewer() {
+export function Viewer({ level }) {
   const [isOpenMap, setIsOpenMap] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [clickedPosition, setClickedPosition] = useState(null);
   const [acceptAnswer, setAcceptAnswer] = useState(null);
-  const [currentStepEasy, setCurrentStepEasy] = useState(1);
+  const [currentGameStep, setCurrentGameStep] = useState(1);
   const [currentStepData, setCurrentStepData] = useState(null);
   const [isAnswerCurrent, setIsAnswerCurrent] = useState(null);
   const containerRef = useRef(null);
-  const [coordinatesEasyLevel, setCoordinatesEasyLevel] = useState(
-    initialCoordinatesEasyLevel
+  const initialCoordinates = {
+    easy: initialCoordinatesEasyLevel,
+    medium: initialCoordinatesMediumLevel,
+  };
+  const coordinates = useCoordinates(level, initialCoordinates);
+  const currentStepDataMemo = useCurrentStepData(
+    level,
+    coordinates,
+    currentGameStep
   );
-
-  useEffect(() => {
-    setCoordinatesEasyLevel(
-      assignRandomCurrentSteps(initialCoordinatesEasyLevel)
-    );
-  }, []);
-
-  const currentStepDataMemo = useMemo(() => {
-    let data = null;
-
-    coordinatesEasyLevel.forEach(({ currentStep, country, imageId }) => {
-      if (currentStep !== currentStepEasy) {
-        return;
-      }
-      data = { currentStep, country, imageId };
-    });
-    return data;
-  }, [coordinatesEasyLevel, currentStepEasy]);
+  useViewerInitialization(containerRef, currentStepDataMemo);
 
   useEffect(() => {
     setCurrentStepData(currentStepDataMemo);
@@ -60,14 +51,6 @@ export function Viewer() {
       );
     }
   }, [acceptAnswer, clickedPosition, currentStepData]);
-
-  useEffect(() => {
-    if (containerRef.current && currentStepData) {
-      console.log(currentStepData);
-      initializeViewer(currentStepData.imageId, containerRef.current);
-    }
-    removeFirstMapillaryDom();
-  }, [containerRef, currentStepData]);
 
   return (
     <div>
@@ -103,7 +86,7 @@ export function Viewer() {
 
       {acceptAnswer && isAnswerCurrent !== null ? (
         <ModalAnswerResult
-          setCurrentStepEasy={setCurrentStepEasy}
+          setCurrentStepEasy={setCurrentGameStep}
           setAcceptAnswer={setAcceptAnswer}
           isAnswerCurrent={isAnswerCurrent}
           setIsAnswerCurrent={setIsAnswerCurrent}

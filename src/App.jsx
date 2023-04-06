@@ -1,9 +1,10 @@
-import { Viewer } from "./components/Viewer/Viewer";
+import { GameRoutes } from "./components/GameRoutes/GameRoutes";
+
 
 function App() {
   return (
     <div className="app">
-      <Viewer />
+      <GameRoutes />
     </div>
   );
 }
