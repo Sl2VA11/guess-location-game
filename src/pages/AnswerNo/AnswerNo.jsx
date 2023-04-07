@@ -1,9 +1,12 @@
-import style from "./AnswerNo.module.scss";
+// images
 import firstMan from "../../images/first-man.png";
 import secondMan from "../../images/second-man.png";
 import arrowBack from "../../icons/arrow-left.svg";
+// libraries
 import { ReactSVG } from "react-svg";
 import { Link } from "react-router-dom";
+// style
+import style from "./AnswerNo.module.scss";
 
 export function AnswerNo() {
   return (

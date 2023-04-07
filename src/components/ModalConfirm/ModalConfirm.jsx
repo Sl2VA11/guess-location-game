@@ -1,3 +1,4 @@
+// style
 import style from "./ModalConfirm.module.scss";
 
 export function ModalConfirm({ setIsOpenModal, setIsOpenMap, setAcceptAnswer }) {

@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+// components
 import { Viewer } from "../../components/Viewer/Viewer";
+// libraries
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export function Game() {
    const location = useLocation();

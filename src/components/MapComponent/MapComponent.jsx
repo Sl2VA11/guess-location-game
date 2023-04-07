@@ -1,15 +1,18 @@
+// libraries
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import React, { useEffect, useState } from "react";
 import L from "leaflet";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import style from "./MapComponent.module.scss";
+//helpers
 import { ClickMapHandler } from "../../helpers/map/ClickMapHandler";
+//style
+import style from "./MapComponent.module.scss";
+
 
 export const MapComponent = ({
   setIsOpenMap,
   setIsOpenModal,
   clickedPosition,
   setClickedPosition,
- 
 }) => {
   // const [clickedPosition, setClickedPosition] = useState(null);
   const [fullMapScreen, setFullMapScreen] = useState(false);
@@ -26,9 +29,6 @@ export const MapComponent = ({
 
   const initialPosition = [30, 20];
   const initialZoom = fullMapScreen ? 3 : 2;
-
-  
- 
 
   return (
     <>

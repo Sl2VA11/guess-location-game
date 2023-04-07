@@ -1,11 +1,25 @@
-import { Link } from "react-router-dom";
-import style from "./Welcome.module.scss";
-import { motion } from "framer-motion";
+//components
 import { StartedAnimation } from "../../components/StartedAnimation/StartedAnimation";
+//hooks
 import { useStartedAnimation } from "../../hooks/useStartedAnimation";
+import { useImagesLoad } from "../../hooks/useImagesLoad";
+// images 
+import muralsSecond from "../../images/murals-second.png";
+import murals from "../../images/murals.png";
+import firstMan from "../../images/first-man.png";
+import secondMan from "../../images/second-man.png";
+// libraries
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+//style
+import style from "./Welcome.module.scss";
+
 
 export function Welcome() {
   const { isAnimation, isVisibleTitle } = useStartedAnimation();
+  const images = [murals, muralsSecond, firstMan, secondMan];
+  useImagesLoad(images);
+
 
   return (
     <div className={style.welcome}>

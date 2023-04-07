@@ -1,13 +1,10 @@
-// Importing libraries and components
+// libraries 
 import {useEffect, useRef, useState } from "react";
 import style from "./Viewer.module.scss";
-
-// Importing helper functions
-
+// helper functions
 import { initialCoordinatesEasyLevel } from "../../levels/easy-level";
 import { isLocationInCountry } from "../../api/fetchImageMetadata";
-
-// Importing components
+// components
 import { MapComponent } from "../MapComponent/MapComponent";
 import { ModalConfirm } from "../ModalConfirm/ModalConfirm";
 import { ModalAnswerResult } from "../ModalAnswerResult/ModalAnswerResult";

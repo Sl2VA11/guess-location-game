@@ -1,4 +1,6 @@
+//style
 import style from "./StartedAnimation.module.scss"
+//images
 import barcelona from "../../images/barcelona.png";
 import berlin from "../../images/berlin-wall.png";
 import lennon from "../../images/lennon-wall.png";

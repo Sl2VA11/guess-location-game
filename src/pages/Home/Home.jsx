@@ -1,20 +1,23 @@
-import style from "./Home.module.scss";
+// images
+import muralsSecond from "../../images/murals-second.png";
 import arrowBack from "../../icons/arrow-left.svg";
 import murals from "../../images/murals.png";
-import muralsSecond from "../../images/murals-second.png";
-import { ReactSVG } from "react-svg";
-import { Link } from "react-router-dom";
+// libraries
 import { motion, useAnimation } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ReactSVG } from "react-svg";
 import { useEffect } from "react";
-
+// style
+import style from "./Home.module.scss";
 export function Home() {
+
   const controls = useAnimation();
 
   useEffect(() => {
     controls.start((i) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.5 },
+      transition: { delay: i * 1 },
     }));
   }, [controls]);
 

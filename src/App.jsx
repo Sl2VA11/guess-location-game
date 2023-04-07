@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+//components
 import { GameRoutes } from "./components/GameRoutes/GameRoutes";
-import murals from "./images/murals.png";
-import muralsSecond from "./images/murals-second.png";
+//hooks
+import { useImagesLoad } from "./hooks/useImagesLoad";
+// images
 import barcelona from "./images/barcelona.png";
 import berlin from "./images/berlin-wall.png";
 import lennon from "./images/lennon-wall.png";
@@ -10,44 +11,11 @@ import peace from "./images/peace.png";
 import zabou from "./images/zabou.png";
 
 function App() {
-  const [loadingProgress, setLoadingProgress] = useState(0);
-  
-  
-  useEffect(() => {
-    const images = [murals, muralsSecond];
+  const images = [barcelona, berlin, lennon, nyc, peace, zabou];
 
-    images.forEach((image) => {
-      const img = new Image();
-      img.src = image;
-    });
-  }, []);
-
-  useEffect(() => {
-    const images = [barcelona, berlin, lennon, nyc, peace, zabou];
-     let loadedImages = 0;
-
-     const handleImageLoad = () => {
-       loadedImages++;
-       setLoadingProgress((loadedImages / images.length) * 100);
-     };
-
-     const handleImageError = () => {
-       console.error("Error loading image");
-     };
-
-   
-     images.forEach((image) => {
-       const img = new Image();
-       img.src = image;
-       img.onload = handleImageLoad;
-       img.onerror = handleImageError;
-     });
+  const { loadingProgress } = useImagesLoad(images);
 
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [barcelona, berlin, lennon, nyc, peace, zabou]);
-
-  
   return (
     <div className="app">
       {loadingProgress < 100 ? (

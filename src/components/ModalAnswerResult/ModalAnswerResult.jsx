@@ -1,3 +1,4 @@
+// style
 import style from "./ModalAnswerResult.module.scss";
 
 export function ModalAnswerResult({
