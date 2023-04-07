@@ -12,14 +12,12 @@
 .homeHeaderNav {
   display: flex;
   align-items: center;
-
 }
 
-.homeHeaderNameWrapper{
- position: absolute;
- left: 50%;
- transform: translate(-50%);
-  
+.homeHeaderNameWrapper {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .homeHeaderName {
@@ -28,14 +26,13 @@
   font-weight: 400;
   font-size: 30px;
   line-height: 39px;
- 
-  
+
   letter-spacing: 0.06em;
 
   color: #000000;
 }
-.homeHeaderLinkWrapper{
-   margin-left: auto;
+.homeHeaderLinkWrapper {
+  margin-left: auto;
 }
 .homeHeaderLink {
   font-family: "Staatliches";
@@ -56,42 +53,70 @@
 ////////hero
 
 .homeHero {
-  margin-bottom: 35px;
+  margin-bottom: 75px;
 }
 
 .homeHeroImg {
+  position: relative;
   width: 110%;
-  height: 220px;
+  height: 298px;
 }
 
 .homeHeroSecondImg {
+  position: absolute;
+  top: 20%;
   width: 100%;
   margin-top: 12px;
+  height: 206px;
 }
 
 ////main
-
-.homeMainNav {
+.main{
+  padding-bottom: 40px;
+}
+.mainLinkWrapper{
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
+}
+.mainLinkName {
+  font-family: "Sedgwick Ave Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 80px;
+  line-height: 104px;
+
+  letter-spacing: 0.06em;
+
+  color: #000000;
 }
 
-.toLevel {
-  &:not(:last-child) {
-    margin-bottom: 54px;
-  }
+//////footer
+
+.homeFooter {
+  position: absolute;
+  padding: 0px 24px 0px 24px;
+  bottom: 9px;
+  width: 100%;
+}
+.footerLinkWrapper{
+display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.supportWrapper {
+  display: flex;
+  align-items: center;
 }
 
-.levelName {
+.supportText {
   font-family: "Staatliches";
   font-style: normal;
   font-weight: 400;
-  font-size: 50px;
-  line-height: 65px;
-  text-align: center;
+  font-size: 30px;
+  line-height: 39px;
   letter-spacing: 0.05em;
-
+  margin-left: 10px;
+  border-bottom: 2px solid #757575;
   color: #000000;
 }

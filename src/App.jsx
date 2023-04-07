@@ -12,10 +12,8 @@ import zabou from "./images/zabou.png";
 
 function App() {
   const images = [barcelona, berlin, lennon, nyc, peace, zabou];
-
   const { loadingProgress } = useImagesLoad(images);
 
-  console.log(loadingProgress);
 
   return (
     <div className="app">

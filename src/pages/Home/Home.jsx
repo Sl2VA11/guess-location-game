@@ -1,25 +1,19 @@
 // images
 import muralsSecond from "../../images/murals-second.png";
 import arrowBack from "../../icons/arrow-left.svg";
+import emblem from "../../icons/emblem.svg";
 import murals from "../../images/murals.png";
+import email from "../../icons/email.svg";
 // libraries
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ReactSVG } from "react-svg";
-import { useEffect } from "react";
+
 // style
 import style from "./Home.module.scss";
 export function Home() {
 
-  const controls = useAnimation();
-
-  useEffect(() => {
-    controls.start((i) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 1 },
-    }));
-  }, [controls]);
+  
 
   return (
     <motion.div
@@ -52,46 +46,32 @@ export function Home() {
         <img
           src={muralsSecond}
           alt="muralsSecond"
-          className={`${style.homeHeroImg} ${style.homeHeroSecondImg}`}
+          className={`${style.homeHeroSecondImg}`}
         />
       </div>
 
-      <main>
-        <nav className={style.homeMainNav}>
-          <Link to={"/game/easy"} className={style.toLevel}>
-            <motion.span
-              className={style.levelName}
-              initial={{ opacity: 0, y: -20 }}
-              custom={0}
-              animate={controls}
-            >
-              easy level
-            </motion.span>
-          </Link>
-
-          <Link to={"/game/medium"} className={style.toLevel}>
-            <motion.span
-              className={style.levelName}
-              initial={{ opacity: 0, y: -20 }}
-              custom={1}
-              animate={controls}
-            >
-              medium level
-            </motion.span>
-          </Link>
-
-          <Link to={"/game/professional"} className={style.toLevel}>
-            <motion.span
-              className={style.levelName}
-              initial={{ opacity: 0, y: -20 }}
-              custom={2}
-              animate={controls}
-            >
-              professional level
-            </motion.span>
-          </Link>
-        </nav>
+      <main className={style.main}>
+        <div className={style.mainLinkWrapper}>
+          <span className={style.mainLinkName}>Play</span>
+          <span className={style.mainLinkName}>Rules</span>
+        </div>
       </main>
+
+      <footer className={style.homeFooter}>
+        <div className={style.footerLinkWrapper}>
+          <a href="/">
+            <ReactSVG src={email} />
+          </a>
+
+          <a
+            href="https://savelife.in.ua/en/donate-en/#donate-army-card-monthly"
+            className={style.supportWrapper}
+          >
+            <ReactSVG src={emblem} />
+            <p className={style.supportText}>support ukraine</p>
+          </a>
+        </div>
+      </footer>
     </motion.div>
   );
 }
