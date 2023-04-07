@@ -1,0 +1,89 @@
+.answerNo {
+  height: 100vh;
+}
+
+.answerNoWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.answerNoTitle {
+  font-family: "Sedgwick Ave Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 120px;
+  line-height: 155px;
+  text-align: center;
+  letter-spacing: 0.06em;
+
+  color: rgba(0, 0, 0, 1);
+}
+
+.firstMan {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translate(-40px, -40px);
+  animation: fadeInFirstMove 1s forwards;
+}
+
+.secondMan {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  transform: translate(40px, 40px);
+  animation: fadeInSecondMove 1s forwards;
+  @media screen and (max-height: 870px) {
+    width: 320px;
+  }
+}
+
+.arrowBack {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  animation: pulse 3s infinite;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(2);
+    animation: none;
+  }
+}
+
+@keyframes fadeInFirstMove {
+  0% {
+    opacity: 0;
+    transform: translate(-40px, -40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+@keyframes fadeInSecondMove {
+  0% {
+    opacity: 0;
+    transform: translate(40px, 40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

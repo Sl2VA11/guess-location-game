@@ -1,0 +1,147 @@
+.photoFirst {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 520px;
+  opacity: 1;
+
+  @media screen and (min-width: 1618px) {
+    width: 70%;
+  }
+
+  @media screen and (min-height: 920px) {
+    height: 100%;
+  }
+
+  /* animation */
+  animation-name: slideLeftAndFade;
+  animation-duration: 1s;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
+}
+
+.photoSecond {
+  position: absolute;
+  left: 55%;
+  top: 0%;
+  transform: translate(-55%, 0%);
+  z-index: 10;
+
+  @media screen and (min-height: 920px) {
+    height: 100%;
+  }
+
+  /* animation */
+  animation-name: slideTopAndFade;
+  animation-duration: 1s;
+  animation-delay: 0.8s;
+  animation-fill-mode: forwards;
+}
+
+.photoThird {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 530px;
+
+  @media screen and (min-height: 920px) {
+    height: 100%;
+  }
+
+  /* animation */
+  animation-name: slideRightAndFade;
+  animation-duration: 1s;
+  animation-delay: 1.2s;
+  animation-fill-mode: forwards;
+}
+.animationWrapperBottom {
+  z-index: 100;
+}
+
+.photoBottomFirst {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  height: 457px;
+
+  /* animation */
+  animation-name: slideLeftAndFade;
+  animation-duration: 1s;
+  animation-delay: 1.6s;
+  animation-fill-mode: forwards;
+}
+.photoBottomSecond {
+  position: absolute;
+  left: 45%;
+  bottom: 0%;
+  transform: translate(-45%, 0%);
+  z-index: 100;
+  height: 486px;
+
+  /* animation */
+  animation-name: slideBottomAndFade;
+  animation-duration: 1s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+.photoBottomThird {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  height: 383px;
+
+  /* animation */
+  animation-name: slideRightAndFade;
+  animation-duration: 1s;
+  animation-delay: 2.4s;
+  animation-fill-mode: forwards;
+}
+
+/////animation
+
+@keyframes slideLeftAndFade {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideTopAndFade {
+  0% {
+    opacity: 1;
+    transform: translateX(-55%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-55%) translateY(-100%);
+  }
+}
+
+@keyframes slideRightAndFade {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideBottomAndFade {
+  0% {
+    opacity: 1;
+    transform: translateX(-45%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-45%) translateY(100%);
+  }
+}
