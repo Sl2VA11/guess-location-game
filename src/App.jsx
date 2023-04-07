@@ -15,6 +15,7 @@ function App() {
 
   const { loadingProgress } = useImagesLoad(images);
 
+  console.log(loadingProgress);
 
   return (
     <div className="app">
