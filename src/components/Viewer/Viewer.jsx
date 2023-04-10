@@ -4,39 +4,22 @@ import style from "./Viewer.module.scss";
 // helper functions
 import { initialCoordinatesEasyLevel } from "../../levels/easy-level";
 import { isLocationInCountry } from "../../api/fetchImageMetadata";
-// components
-import { MapComponent } from "../MapComponent/MapComponent";
-import { ModalConfirm } from "../ModalConfirm/ModalConfirm";
-import { ModalAnswerResult } from "../ModalAnswerResult/ModalAnswerResult";
 import { initialCoordinatesMediumLevel } from "../../levels/medium-level";
 import { useCoordinates } from "../../hooks/useCoordinates";
 import { useCurrentStepData } from "../../hooks/useCurrentStepData";
 import { useViewerInitialization } from "../../hooks/useViewerInitialization";
+// components
+import { MapComponent } from "../MapComponent/MapComponent";
+import { ModalConfirm } from "../ModalConfirm/ModalConfirm";
+import { ModalAnswerResult } from "../ModalAnswerResult/ModalAnswerResult";
 
-export function Viewer({ level }) {
+
+export function Viewer({ currentStepData, containerRef, setCurrentGameStep }) {
   const [isOpenMap, setIsOpenMap] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [clickedPosition, setClickedPosition] = useState(null);
   const [acceptAnswer, setAcceptAnswer] = useState(null);
-  const [currentGameStep, setCurrentGameStep] = useState(1);
-  const [currentStepData, setCurrentStepData] = useState(null);
   const [isAnswerCurrent, setIsAnswerCurrent] = useState(null);
-  const containerRef = useRef(null);
-  const initialCoordinates = {
-    easy: initialCoordinatesEasyLevel,
-    medium: initialCoordinatesMediumLevel,
-  };
-  const coordinates = useCoordinates(level, initialCoordinates);
-  const currentStepDataMemo = useCurrentStepData(
-    level,
-    coordinates,
-    currentGameStep
-  );
-  useViewerInitialization(containerRef, currentStepDataMemo);
-
-  useEffect(() => {
-    setCurrentStepData(currentStepDataMemo);
-  }, [currentStepDataMemo]);
 
   useEffect(() => {
     if (acceptAnswer && currentStepData) {

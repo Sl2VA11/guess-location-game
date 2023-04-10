@@ -3,11 +3,12 @@ import { StartedAnimation } from "../../components/StartedAnimation/StartedAnima
 //hooks
 import { useStartedAnimation } from "../../hooks/useStartedAnimation";
 import { useImagesLoad } from "../../hooks/useImagesLoad";
-// images 
+// images
 import muralsSecond from "../../images/murals-second.png";
 import murals from "../../images/murals.png";
 import firstMan from "../../images/first-man.png";
 import secondMan from "../../images/second-man.png";
+
 // libraries
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -18,7 +19,7 @@ import style from "./Welcome.module.scss";
 export function Welcome() {
   const { isAnimation, isVisibleTitle } = useStartedAnimation();
   const images = [murals, muralsSecond, firstMan, secondMan];
-  useImagesLoad(images);
+useImagesLoad(images);
 
 
   return (

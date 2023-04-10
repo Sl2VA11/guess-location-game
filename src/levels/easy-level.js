@@ -3,69 +3,105 @@ export const initialCoordinatesEasyLevel = [
   {
     city: "Barcelona",
     country: "Spain",
-    coordinates: [40.416775, -3.70379],
     imageId: "466923894400259",
   },
   {
     city: "Paris",
     country: "France",
-    coordinates: [2.3488, 48.8534],
     imageId: "908433313271572",
   },
   {
     city: "Rome",
     country: "Italy",
-    coordinates: [2.3488, 48.8534],
     imageId: "469871411019544",
   },
   {
     city: "New-York",
     country: "United States",
-    coordinates: [2.3488, 48.8534],
     imageId: "5538048689540519",
   },
   {
     city: "Sydney",
     country: "Australia",
-    coordinates: [2.3488, 48.8534],
     imageId: "458984375360202",
   },
   {
     city: "London",
     country: "United Kingdom",
-    coordinates: [2.3488, 48.8534],
     imageId: "521667635703695",
   },
   {
     city: "Amsterdam",
     country: "Netherlands",
-    coordinates: [2.3488, 48.8534],
     imageId: "172070978121627",
   },
   {
     city: "Toronto",
     country: "Canada",
-    coordinates: [2.3488, 48.8534],
     imageId: "916943282485727",
   },
   {
     city: "Tokyo",
     country: "Japan",
-    coordinates: [2.3488, 48.8534],
     imageId: "1706807426188805",
   },
   {
     city: "Dybai",
     country: "United Arab Emirates",
-    coordinates: [2.3488, 48.8534],
     imageId: "5845890615428769",
   },
   {
     city: "Berlin",
     country: "Germany",
-    coordinates: [2.3488, 48.8534],
     imageId: "376283820385085",
+  },
+  {
+    city: "Brussel",
+    country: "Belgium",
+    imageId: "1358023964677957",
+  },
+  {
+    city: "Copenhagen",
+    country: "Denmark",
+    imageId: "5963458183740122",
+  },
+  {
+    city: "Stockholm",
+    country: "Sweden",
+    imageId: "541453113673865",
+  },
+  {
+    city: "Helsinki",
+    country: "Finland",
+    imageId: "134606188708935",
+  },
+  {
+    city: "Prague",
+    country: "Czech Republic",
+    imageId: "540274230322720",
+  },
+
+  {
+    city: "Athens",
+    country: "Greece",
+    imageId: "926444681364823",
+  },
+  {
+    city: "Chicago",
+    country: "United States",
+    imageId: "2941210376160452",
+  },
+  {
+    city: "Milan",
+    country: "Italy",
+    imageId: "144164004360174",
+  },
+  {
+    city: "Liverpool",
+    country: "England",
+    imageId: "291203093075669",
   },
 ];
 
-//5845890615428769
+
+

@@ -1,9 +1,8 @@
 .home {
   overflow-x: hidden;
   width: 100%;
-  max-width: 100%;
 }
-.homeHeader {
+.homeHeader { 
   padding-left: 45px;
   padding-right: 35px;
   padding: 20px 35px 0px 45px;
@@ -12,11 +11,13 @@
 .homeHeaderNav {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .homeHeaderNameWrapper {
   position: absolute;
   left: 50%;
+  top: 12%;
   transform: translate(-50%);
 }
 
@@ -30,6 +31,10 @@
   letter-spacing: 0.06em;
 
   color: #000000;
+}
+.goBackIcon{
+  width: 40px;
+  height: 40px;
 }
 .homeHeaderLinkWrapper {
   margin-left: auto;
@@ -53,20 +58,20 @@
 ////////hero
 
 .homeHero {
+  position: relative;
   margin-bottom: 75px;
 }
 
 .homeHeroImg {
-  position: relative;
+  
   width: 110%;
   height: 298px;
 }
 
 .homeHeroSecondImg {
   position: absolute;
-  top: 20%;
+  top: 15%;
   width: 100%;
-  margin-top: 12px;
   height: 206px;
 }
 
@@ -89,6 +94,11 @@
   letter-spacing: 0.06em;
 
   color: #000000;
+  cursor: pointer;
+  &:hover,
+  &:focus{
+    color: #C61600;
+  }
 }
 
 //////footer
