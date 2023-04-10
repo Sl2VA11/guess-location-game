@@ -3,7 +3,7 @@ export const levels = [
     name: "easy",
     link: "/game/easy",
     minValue: 0,
-    maxValue: 40,
+    maxValue: 20,
   },
 
   {
