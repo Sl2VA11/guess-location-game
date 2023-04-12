@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { isLocationInCountry } from "../api/fetchImageMetadata";
+import { isAnswerCorrect } from "../helpers/isInputAnswerCorrect";
 
 export const useViewerState = (currentStepData) => {
   const [state, setState] = useState({
@@ -14,17 +15,16 @@ export const useViewerState = (currentStepData) => {
 
   useEffect(() => {
     const { acceptAnswer, clickedPosition, inputAnswer } = state;
-    
+
     if (acceptAnswer && !clickedPosition) {
       // input answer
-      const isCorrect =
-        inputAnswer.toLowerCase() === currentStepData.country.toLowerCase();
+
+      const isCorrect = isAnswerCorrect(inputAnswer);
       setState((prevState) => ({
         ...prevState,
         isInputAnswerCorrect: isCorrect,
       }));
     }
-
 
     if (acceptAnswer && currentStepData && clickedPosition) {
       // map answer
@@ -33,7 +33,7 @@ export const useViewerState = (currentStepData) => {
         setState((prevState) => ({ ...prevState, isAnswerCurrent: result }))
       );
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     state.acceptAnswer,
     state.clickedPosition,

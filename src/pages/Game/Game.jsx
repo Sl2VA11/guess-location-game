@@ -21,9 +21,9 @@ export function Game({ currentCitiesQuantity }) {
   };
 
 
-  const coordinates = useCoordinates(level, initialCoordinates,currentCitiesQuantity);
+  const coordinates = useCoordinates(level, initialCoordinates, currentCitiesQuantity);
+
   const currentStepDataMemo = useCurrentStepData(
-    level,
     coordinates,
     currentGameStep
   );
@@ -34,6 +34,7 @@ export function Game({ currentCitiesQuantity }) {
   }, [initialLevel, location.pathname]);
 
   useEffect(() => {
+
     setCurrentStepData(currentStepDataMemo);
   }, [currentStepDataMemo]);
 
