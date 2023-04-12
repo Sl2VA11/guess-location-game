@@ -2,7 +2,7 @@
   overflow-x: hidden;
   width: 100%;
 }
-.homeHeader { 
+.homeHeader {
   padding-left: 45px;
   padding-right: 35px;
   padding: 20px 35px 0px 45px;
@@ -32,7 +32,7 @@
 
   color: #000000;
 }
-.goBackIcon{
+.goBackIcon {
   width: 40px;
   height: 40px;
 }
@@ -63,7 +63,6 @@
 }
 
 .homeHeroImg {
-  
   width: 110%;
   height: 298px;
 }
@@ -76,10 +75,10 @@
 }
 
 ////main
-.main{
+.main {
   padding-bottom: 40px;
 }
-.mainLinkWrapper{
+.mainLinkWrapper {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -96,8 +95,8 @@
   color: #000000;
   cursor: pointer;
   &:hover,
-  &:focus{
-    color: #C61600;
+  &:focus {
+    color: #c61600;
   }
 }
 
@@ -109,8 +108,8 @@
   bottom: 9px;
   width: 100%;
 }
-.footerLinkWrapper{
-display: flex;
+.footerLinkWrapper {
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
@@ -129,4 +128,13 @@ display: flex;
   margin-left: 10px;
   border-bottom: 2px solid #757575;
   color: #000000;
+}
+
+.email{
+  width: 49px;
+height: 49px;
+}
+.emblem {
+  width: 39px;
+  height: 56px;
 }

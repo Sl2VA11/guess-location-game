@@ -17,12 +17,7 @@ export function Home() {
   const { t } = useTranslation();
   return (
     <>
-      <motion.div
-        className={style.home}
-        initial={{ opacity: 0, transition: { duration: 1 } }}
-        animate={{ opacity: 1, transition: { duration: 1 } }}
-        exit={{ opacity: 0, transition: { duration: 1 } }}
-      >
+      <div className={style.home}>
         <header className={style.homeHeader}>
           <nav className={style.homeHeaderNav}>
             <Link to={"/"}>
@@ -47,9 +42,9 @@ export function Home() {
         </header>
         <motion.div
           className={style.homeHero}
-          initial={{ scale: 0.95, opacity: 1, transition: { duration: 0.5 } }}
-          animate={{ scale: 1, opacity: 1, transition: { duration: 0.5 } }}
-          exit={{ scale: 0.95, opacity: 1, transition: { duration: 0.5 } }}
+          initial={{ opacity: 0, transition: { duration: 1 } }}
+          animate={{ opacity: 1, transition: { duration: 1 } }}
+          exit={{ opacity: 0, transition: { duration: 1 } }}
         >
           <img src={murals} alt="murals" className={style.homeHeroImg} />
 
@@ -72,27 +67,22 @@ export function Home() {
             </Link>
           </div>
         </main>
-        <motion.footer
-          className={style.homeFooter}
-          initial={{ opacity: 0, transition: { duration: 0.5 } }}
-          animate={{ opacity: 1, transition: { duration: 0.5 } }}
-          exit={{ opacity: 0, transition: { duration: 0.5 } }}
-        >
+        <footer className={style.homeFooter}>
           <div className={style.footerLinkWrapper}>
             <a href="mailto:can.you.guess.game@gmail.com">
-              <ReactSVG src={email} />
+              <ReactSVG src={email} className={style.email} />
             </a>
 
             <a
               href="https://savelife.in.ua/en/donate-en/#donate-army-card-monthly"
               className={style.supportWrapper}
             >
-              <ReactSVG src={emblem} />
+              <ReactSVG src={emblem} className={style.emblem} />
               <p className={style.supportText}> {t("home-page.support")}</p>
             </a>
           </div>
-        </motion.footer>
-      </motion.div>
+        </footer>
+      </div>
       <Outlet />
     </>
   );
