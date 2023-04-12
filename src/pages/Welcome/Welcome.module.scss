@@ -35,7 +35,6 @@
   height: 78px;
   background: #ffffff;
   border: 1px solid #a3a3a3;
-  margin-right: 100px;
 
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -59,4 +58,57 @@
 .welcomeNoBtn {
   border: none;
   background: none;
+}
+
+////////openLangMenu
+
+.openLangMenuWrapper {
+  position: absolute;
+  top: 17px;
+  left: 30px;
+  cursor: pointer;
+}
+.openLangWrapper {
+  display: flex;
+  align-items: center;
+}
+.currentLang {
+  font-family: "Staatliches";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 39px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  margin-right: 10px;
+  color: #000000;
+}
+
+.arrowLangMenuUp {
+  rotate: 180deg;
+}
+
+//////////createdByWrapper
+.createdByWrapper {
+  position: absolute;
+  bottom: 17px;
+  right: 20px;
+}
+
+.createdByText {
+  font-family: "Staatliches";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 39px;
+  letter-spacing: 0.05em;
+  color: #000000;
+  cursor: pointer;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    color: #757575;
+    font-size: 34px;
+  }
 }

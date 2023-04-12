@@ -43,6 +43,7 @@ export function Game({ currentCitiesQuantity }) {
       currentStepData={currentStepData}
       containerRef={containerRef}
       setCurrentGameStep={setCurrentGameStep}
+      currentCitiesQuantity={currentCitiesQuantity}
     />
   );
 }

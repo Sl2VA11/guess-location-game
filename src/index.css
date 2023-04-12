@@ -1,6 +1,6 @@
 /* import */
 @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&family=Staatliches&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Overpass&display=swap");
 /* reset */
 h1,
 h2,
@@ -78,4 +78,22 @@ code {
   height: 20px;
   background-color: black;
   border-radius: 50%;
+}
+
+/* /////////// for ukrainian texts //////////// */
+
+.ukrainian {
+  font-family: "Montserrat", "Overpass", "Zen Dots", sans-serif;
+}
+
+.ukrainian .Welcome_currentLang__AKVnk,
+.ukrainian .Welcome_welcomeTitle__-JNr3,
+.ukrainian .Welcome_welcomeBtn__JpuyQ,
+.ukrainian .Welcome_createdByText__30bys,
+.ukrainian .Home_homeHeaderLink__SSl5o,
+.ukrainian .Home_mainLinkName__YsJoh,
+.ukrainian .Home_supportText__zgeEl,
+.ukrainian .ChooseLevel_chooseLevelTitle__OtmT7,
+.ukrainian .ChooseLevel_chooseLevelName__-DKx6{
+  font-family: "Overpass";
 }

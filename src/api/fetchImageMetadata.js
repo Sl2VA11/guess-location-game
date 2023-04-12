@@ -17,7 +17,7 @@ export async function isLocationInCountry(latitude, longitude, targetCountry) {
     );
 
     const country = response.data.address.country;
-    console.log(country);
+    
 
     return country.toLowerCase() === targetCountry.toLowerCase();
 

@@ -7,8 +7,10 @@ import { ReactSVG } from "react-svg";
 import { Link } from "react-router-dom";
 // style
 import style from "./AnswerNo.module.scss";
+import { useTranslation } from "react-i18next";
 
 export function AnswerNo() {
+   const { t, i18n } = useTranslation();
   return (
     <div className={style.answerNo}>
       <div className={style.answerNoWrapper}>
@@ -20,7 +22,9 @@ export function AnswerNo() {
         />
 
         <h1 className={style.answerNoTitle}>
-          <span style={{ color: "#C61600" }}>why</span> are you here?
+          <span
+            dangerouslySetInnerHTML={{ __html: t("wrong-answer-page.title") }}
+          ></span>
         </h1>
 
         <img

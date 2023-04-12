@@ -52,10 +52,19 @@
   text-align: center;
   color: #000000;
 }
+.chooseLevelText {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  text-align: center;
+  letter-spacing: 0.05em;
 
+  color: #a3a3a3;
+}
 .sliderWrapper {
   position: relative;
-  margin-top: 60px;
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -76,15 +85,12 @@
 }
 
 .btnWrapper {
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 63px;
 }
 
-
 .confirmBtn {
-  width: 287px;
+  width: 100%;
   height: 62px;
-  margin-top: 63px;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   border: none;

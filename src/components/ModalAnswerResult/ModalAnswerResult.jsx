@@ -6,23 +6,27 @@ export function ModalAnswerResult({
   setAcceptAnswer,
   isAnswerCurrent,
   setIsAnswerCurrent,
+  isInputAnswerCorrect,
+  setIsInputAnswerCorrect,
+  setClickedPosition,
 }) {
-  console.log(isAnswerCurrent);
   return (
     <div className={style.modalBackdrop}>
       <div className={style.modal}>
         <p className={style.modalText}>
-          {isAnswerCurrent
+          {isAnswerCurrent || isInputAnswerCorrect
             ? "Fuck your ass!!! You are right"
             : "You are so stupid!!! Try again"}
         </p>
         <div className={style.modalBtnWrapper}>
-          {!isAnswerCurrent && (
+          {!isAnswerCurrent && !isInputAnswerCorrect && (
             <button
               className={style.modalBtn}
               onClick={() => {
                 setAcceptAnswer(null);
-                setIsAnswerCurrent(null)
+                setIsAnswerCurrent(null);
+                setIsInputAnswerCorrect(null);
+                setClickedPosition(null)
               }}
             >
               Try again
@@ -33,7 +37,9 @@ export function ModalAnswerResult({
             onClick={() => {
               setCurrentStepEasy((prev) => prev + 1);
               setAcceptAnswer(null);
-              setIsAnswerCurrent(null)
+              setIsAnswerCurrent(null);
+              setIsInputAnswerCorrect(null);
+              setClickedPosition(null)
             }}
           >
             Next

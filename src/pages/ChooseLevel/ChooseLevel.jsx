@@ -7,14 +7,16 @@ import { CustomSlider } from "../../components/CustomSlider/CustomSlider";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { levels } from "../../levels/levels";
+import { useTranslation } from "react-i18next";
 
 export function ChooseLevel({ setCurrentCitiesQuantity }) {
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [sliderValue, setSliderValue] = useState(0);
+  const { t } = useTranslation();
 
-   const handleSliderValueSubmit = (value) => {
-      setCurrentCitiesQuantity(value);
-   }
+  const handleSliderValueSubmit = (value) => {
+    setCurrentCitiesQuantity(value);
+  };
   return (
     <div className={style.chooseLevel}>
       <header className={style.chooseLevelHeader}>
@@ -24,7 +26,9 @@ export function ChooseLevel({ setCurrentCitiesQuantity }) {
       </header>
       <main className={style.chooseLevelMain}>
         <h1 className={style.chooseLevelTitle}>
-          C<span style={{ color: "rgba(198, 22, 0, 1)" }}>h</span>oose a level
+          <span
+            dangerouslySetInnerHTML={{ __html: t("choose-level-page.title") }}
+          ></span>
         </h1>
         <ul className={style.chooseLevelList}>
           {levels.map(({ name, link, minValue, maxValue }, index) => {
@@ -44,39 +48,48 @@ export function ChooseLevel({ setCurrentCitiesQuantity }) {
                     setSliderValue(0);
                   }}
                 >
-                  <div className={style.chooseLevelNameWrapper}>
-                    <p className={style.chooseLevelName}>{name} level</p>
-                  </div>
+                  <p className={style.chooseLevelName}>
+                    {t(`choose-level-page.${name.toLowerCase()}-level`)}
+                  </p>
                 </li>
 
                 {selectedLevel === name && (
-                  <motion.div
-                    className={style.sliderWrapper}
-                    initial={{ opacity: 0, transition: { duration: 1 } }}
-                    animate={{ opacity: 1, transition: { duration: 1 } }}
-                    exit={{ opacity: 0, transition: { duration: 1 } }}
-                  >
-                    <CustomSlider
-                      minValue={minValue}
-                      maxValue={maxValue}
-                      sliderValue={sliderValue}
-                      setSliderValue={setSliderValue}
-                    />
-                    <div className={style.sliderValue}>
-                      <span style={{ color: "#C61600" }}>{sliderValue}</span>/
-                      {maxValue}
-                    </div>
+                  <>
+                    <p className={style.chooseLevelText}>
+                      {" "}
+                      {t("choose-level-page.location-numbers-text")}
+                    </p>
+                    <motion.div
+                      className={style.sliderWrapper}
+                      initial={{ opacity: 0, transition: { duration: 1 } }}
+                      animate={{ opacity: 1, transition: { duration: 1 } }}
+                      exit={{ opacity: 0, transition: { duration: 1 } }}
+                    >
+                      <CustomSlider
+                        minValue={minValue}
+                        maxValue={maxValue}
+                        sliderValue={sliderValue}
+                        setSliderValue={setSliderValue}
+                      />
+                      <div className={style.sliderValue}>
+                        <span style={{ color: "#C61600" }}>{sliderValue}</span>/
+                        {maxValue}
+                      </div>
 
-                    <Link to={link} className={style.btnWrapper}>
-                      <button
-                        className={style.confirmBtn}
-                        disabled={sliderValue === 0}
-                        onClick={() => handleSliderValueSubmit(sliderValue)}
+                      <Link
+                        to={sliderValue !== 0 ? link : ""}
+                        className={style.btnWrapper}
                       >
-                        confirm
-                      </button>
-                    </Link>
-                  </motion.div>
+                        <button
+                          className={style.confirmBtn}
+                          disabled={sliderValue === 0}
+                          onClick={() => handleSliderValueSubmit(sliderValue)}
+                        >
+                          {t("choose-level-page.confirm-btn")}
+                        </button>
+                      </Link>
+                    </motion.div>
+                  </>
                 )}
               </motion.div>
             );

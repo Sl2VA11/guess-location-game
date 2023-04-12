@@ -1,9 +1,32 @@
 .openCardBtn {
-  width: 200px;
-  height: 50px;
+  width: 194px;
+  height: 55px;
   position: absolute;
-  left: 0;
-  bottom: 0;
-  font-size: 25px;
+  left: 35px;
+  bottom: 35px;
   cursor: pointer;
+  background: #000000;
+  border-radius: 10px;
+  border: none;
+  font-family: "Sedgwick Ave Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 39px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    background: #251616;
+  }
+}
+
+.quantity{
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 30px;
 }

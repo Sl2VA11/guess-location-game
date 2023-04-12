@@ -9,7 +9,7 @@ export const useCoordinates = (level, initialCoordinates, currentCitiesQuantity)
       0,
       currentCitiesQuantity
     );
-    console.log(newCoordinatesArray);
+   
     setCoordinates(assignRandomCurrentSteps(newCoordinatesArray));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -1,0 +1,29 @@
+{
+  "welcome-page": {
+    "title": "Можеш здогадатися?",
+    "yes-btn": "Так",
+    "no-btn": "Ні",
+    "lang": "Українська",
+    "created-by": "створено ..."
+  },
+  "wrong-answer-page": {
+    "title": " <span style='color: red;'>чому</span> ви тут?"
+  },
+  "home-page": {
+    "title": "Можеш здогадатися?",
+    "play": "Грати",
+    "rules": "Правила",
+    "login": "Увійти",
+    "signup": "Зареєструватися",
+    "support": "Підтримайте Україну"
+  },
+
+  "choose-level-page": {
+    "title": "<span>В<span style='color: rgba(198, 22, 0, 1);'>и</span>беріть рівень</span>",
+    "easy-level": "простий рівень",
+    "medium-level": "середній рівень",
+    "professional-level": "професійний рівень",
+    "confirm-btn": "підтвердити",
+    "location-numbers-text": "кількість локацій"
+  }
+}

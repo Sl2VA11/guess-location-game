@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-export const useCurrentStepData = (level, coordinates, currentGameStep) => {
+export const useCurrentStepData = ( coordinates, currentGameStep) => {
   return useMemo(() => {
     let data = null;
     coordinates.forEach(({ currentStep, country, imageId }) => {

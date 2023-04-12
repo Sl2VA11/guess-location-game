@@ -1,0 +1,29 @@
+{
+  "welcome-page": {
+    "title": "¿Puedes adivinar?",
+    "yes-btn": "Sí",
+    "no-btn": "No",
+    "lang": "Español",
+    "created-by": "creado por ..."
+  },
+  "wrong-answer-page": {
+    "title": " <span style='color: red;'>¿por qué</span> estás aquí?"
+  },
+
+  "home-page": {
+    "title": "¿Puedes adivinar?",
+    "play": "Jugar",
+    "rules": "Reglas",
+    "login": "Iniciar sesión",
+    "signup": "Registrarse",
+    "support": "Apoye a Ucrania"
+  },
+  "choose-level-page": {
+    "title": "<span>E<span style='color: rgba(198, 22, 0, 1);'>l</span>ija un nivel</span>",
+    "easy-level": "Nivel fácil",
+    "medium-level": "Nivel medio",
+    "professional-level": "Nivel profesional",
+    "confirm-btn": "Confirmar",
+    "location-numbers-text": "número de ubicaciones"
+  }
+}

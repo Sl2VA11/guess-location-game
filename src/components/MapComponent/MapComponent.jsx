@@ -14,7 +14,7 @@ export const MapComponent = ({
   clickedPosition,
   setClickedPosition,
 }) => {
-  // const [clickedPosition, setClickedPosition] = useState(null);
+  
   const [fullMapScreen, setFullMapScreen] = useState(false);
   const [fullBtnHover, setFullBtnHover] = useState(false);
 

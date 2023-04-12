@@ -1,36 +1,35 @@
-// libraries 
-import {useEffect, useRef, useState } from "react";
+// libraries
+import { useCallback } from "react";
+//style
 import style from "./Viewer.module.scss";
-// helper functions
-import { initialCoordinatesEasyLevel } from "../../levels/easy-level";
-import { isLocationInCountry } from "../../api/fetchImageMetadata";
-import { initialCoordinatesMediumLevel } from "../../levels/medium-level";
-import { useCoordinates } from "../../hooks/useCoordinates";
-import { useCurrentStepData } from "../../hooks/useCurrentStepData";
-import { useViewerInitialization } from "../../hooks/useViewerInitialization";
 // components
-import { MapComponent } from "../MapComponent/MapComponent";
 import { ModalConfirm } from "../ModalConfirm/ModalConfirm";
 import { ModalAnswerResult } from "../ModalAnswerResult/ModalAnswerResult";
+import { useViewerState } from "../../hooks/useViewerState";
+import { AnswerForm } from "../AnswerForm/AnswerForm";
 
+export function Viewer({
+  currentStepData,
+  containerRef,
+  setCurrentGameStep,
+  currentCitiesQuantity,
+}) {
+  const [state, setState] = useViewerState(currentStepData);
 
-export function Viewer({ currentStepData, containerRef, setCurrentGameStep }) {
-  const [isOpenMap, setIsOpenMap] = useState(false);
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const [clickedPosition, setClickedPosition] = useState(null);
-  const [acceptAnswer, setAcceptAnswer] = useState(null);
-  const [isAnswerCurrent, setIsAnswerCurrent] = useState(null);
+  const handleInputChange = useCallback((e) => {
+    setState((prevState) => ({ ...prevState, inputAnswer: e.target.value }));
+  }, []);
 
-  useEffect(() => {
-    if (acceptAnswer && currentStepData) {
-      console.log(currentStepData);
-      const { lat, lng } = clickedPosition;
-
-      isLocationInCountry(lat, lng, currentStepData.country).then((result) =>
-        setIsAnswerCurrent(result)
-      );
-    }
-  }, [acceptAnswer, clickedPosition, currentStepData]);
+  const handleInputSubmit = useCallback((e) => {
+    e.preventDefault();
+    setState((prevState) => ({ ...prevState, isOpenModal: true }));
+  }, []);
+  const toggleMap = () => {
+    setState((prevState) => ({
+      ...prevState,
+      isOpenMap: !prevState.isOpenMap,
+    }));
+  };
 
   return (
     <div>
@@ -39,37 +38,66 @@ export function Viewer({ currentStepData, containerRef, setCurrentGameStep }) {
         id="mapillary-viewer"
         style={{ width: "100%", height: "100vh" }}
       ></div>
-
-      <button
-        onClick={() => setIsOpenMap((prev) => !prev)}
-        className={style.openCardBtn}
-      >
-        open map
+      <p className={style.quantity}>
+        {currentStepData?.currentStep}/{currentCitiesQuantity}
+      </p>
+      <button onClick={toggleMap} className={style.openCardBtn}>
+        Reply
       </button>
 
-      {isOpenMap && (
-        <MapComponent
-          setIsOpenMap={setIsOpenMap}
-          setIsOpenModal={setIsOpenModal}
-          clickedPosition={clickedPosition}
-          setClickedPosition={setClickedPosition}
-          acceptAnswer={acceptAnswer}
+      {state.isOpenMap && (
+        <AnswerForm
+          handleInputSubmit={handleInputSubmit}
+          handleInputChange={handleInputChange}
+          toggleMap={toggleMap}
+          setIsOpenModal={() =>
+            setState((prevState) => ({ ...prevState, isOpenModal: true }))
+          }
+          clickedPosition={state.clickedPosition}
+          setClickedPosition={(position) =>
+            setState((prevState) => ({
+              ...prevState,
+              clickedPosition: position,
+            }))
+          }
         />
       )}
-      {isOpenModal && (
+      {state.isOpenModal && (
         <ModalConfirm
-          setIsOpenModal={setIsOpenModal}
-          setIsOpenMap={setIsOpenMap}
-          setAcceptAnswer={setAcceptAnswer}
+          setIsOpenModal={() =>
+            setState((prevState) => ({ ...prevState, isOpenModal: false }))
+          }
+          setIsOpenMap={toggleMap}
+          setAcceptAnswer={(accept) =>
+            setState((prevState) => ({ ...prevState, acceptAnswer: accept }))
+          }
         />
       )}
 
-      {acceptAnswer && isAnswerCurrent !== null ? (
+      {(state.acceptAnswer && state.isAnswerCurrent !== null) ||
+      state.isInputAnswerCorrect !== null ? (
         <ModalAnswerResult
           setCurrentStepEasy={setCurrentGameStep}
-          setAcceptAnswer={setAcceptAnswer}
-          isAnswerCurrent={isAnswerCurrent}
-          setIsAnswerCurrent={setIsAnswerCurrent}
+          setAcceptAnswer={(accept) =>
+            setState((prevState) => ({ ...prevState, acceptAnswer: accept }))
+          }
+          isAnswerCurrent={state.isAnswerCurrent}
+          setIsAnswerCurrent={(answer) =>
+            setState((prevState) => ({ ...prevState, isAnswerCurrent: answer }))
+          }
+          isInputAnswerCorrect={state.isInputAnswerCorrect}
+          setIsInputAnswerCorrect={(correct) =>
+            setState((prevState) => ({
+              ...prevState,
+              isInputAnswerCorrect: correct,
+            }))
+          }
+          setClickedPosition={(position) =>
+            setState((prevState) => ({
+              ...prevState,
+              clickedPosition: position,
+            }))
+          }
         />
       ) : null}
     </div>

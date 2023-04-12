@@ -1,0 +1,29 @@
+{
+  "welcome-page":{
+    "title": "Can you guess?",
+    "yes-btn": "Yes",
+    "no-btn" : "No",
+    "lang": "English",
+"created-by": "created by ..."
+  },
+  "wrong-answer-page": {
+    "title": " <span style='color: red;'>why</span> are you here?"
+  },
+  "home-page":{
+    "title": "Can you guess?",
+    "play": "Play",
+    "rules": "Rules",
+    "login": "Log in",
+    "signup": "Sign up",
+    "support": "Support Ukraine"
+  },
+
+  "choose-level-page":{
+    "title": "<span>C<span style='color: rgba(198, 22, 0, 1);'>h</span>oose a level</span>",
+    "easy-level": "Easy level",
+    "medium-level": "Medium level",
+    "professional-level": "Professional level",
+    "confirm-btn": "Confirm",
+    "location-numbers-text": "number of locations"
+  }
+}

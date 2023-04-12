@@ -1,0 +1,28 @@
+{
+  "welcome-page": {
+    "title": "Pouvez-vous deviner?",
+    "yes-btn": "Oui",
+    "no-btn": "Non",
+    "lang": "Français",
+    "created-by": "créé par ..."
+  },
+  "wrong-answer-page": {
+    "title": " <span style='color: red;'>pourquoi</span> êtes-vous ici?"
+  },
+  "home-page": {
+    "title": "Pouvez-vous deviner?",
+    "play": "Jouer",
+    "rules": "Règles",
+    "login": "Se connecter",
+    "signup": "S'inscrire",
+     "support": "Soutenez l'Ukraine"
+  },
+  "choose-level-page": {
+    "title": "<span>C<span style='color: rgba(198, 22, 0, 1);'>h</span>oisissez un niveau</span>",
+    "easy-level": "Niveau facile",
+    "medium-level": "Niveau moyen",
+    "professional-level": "Niveau professionnel",
+    "confirm-btn": "Confirmer",
+    "location-numbers-text": "nombre d'emplacements"
+  }
+}

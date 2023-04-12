@@ -1,80 +1,94 @@
 export const initialCoordinatesMediumLevel = [
   {
-    city: "Vena",
-    country: "Austria",
-    coordinates: [40.416775, -3.70379],
-    imageId: "1110406119447058",
+    city: "Reykjavik",
+    country: "Iceland",
+    imageId: "199929255297273",
   },
-//   {
-//     city: "Paris",
-//     country: "France",
-//     coordinates: [2.3488, 48.8534],
-//     imageId: "908433313271572",
-//   },
-//   {
-//     city: "Rome",
-//     country: "Italy",
-//     coordinates: [2.3488, 48.8534],
-//     imageId: "469871411019544",
-//   },
-//   {
-//     city: "New-York",
-//     country: "United States",
-//     coordinates: [2.3488, 48.8534],
-//     imageId: "5538048689540519",
-//   },
-//   {
-//     city: "Sydney",
-//     country: "Australia",
-//     coordinates: [2.3488, 48.8534],
-//     imageId: "458984375360202",
-//   },
-//   {
-//     city: "London",
-//     country: "United Kingdom",
-//     coordinates: [2.3488, 48.8534],
-//     imageId: "521667635703695",
-//   },
-//   {
-//     city: "Amsterdam",
-//     country: "Netherlands",
-//     coordinates: [2.3488, 48.8534],
-//     imageId: "172070978121627",
-//   },
-//   {
-//     city: "Toronto",
-//     country: "Canada",
-//     coordinates: [2.3488, 48.8534],
-//     imageId: "916943282485727",
-//   },
-//   {
-//     city: "Tokyo",
-//     country: "Japan",
-//     coordinates: [2.3488, 48.8534],
-//     imageId: "1706807426188805",
-//   },
-//   {
-//     city: "Dybai",
-//     country: "United Arab Emirates",
-//     coordinates: [2.3488, 48.8534],
-//     imageId: "5845890615428769",
-//   },
-//   {
-//     city: "Berlin",
-//     country: "Germany",
-//     coordinates: [2.3488, 48.8534],
-//     imageId: "376283820385085",
-//   },
+
+  {
+    city: "Lima",
+    country: "Peru",
+    imageId: "852678799129932",
+  },
+
+  {
+    city: "Auckland",
+    country: "New Zealand",
+    imageId: "4301314126646007",
+  },
+
+  {
+    city: "Helsinki",
+    country: "Finland",
+    imageId: "289411263024247",
+  },
+
+  {
+    city: "Santiago",
+    country: "Chile",
+    imageId: "3335275290021977",
+  },
+  {
+    city: "Jakarta",
+    country: "Indonesia",
+    imageId: "605502267703083",
+  },
+
+  {
+    city: "Quito",
+    country: "Ecuador",
+    imageId: "1891857541177256",
+  },
+
+  {
+    city: "Hanoi",
+    country: "Vietnam",
+    imageId: "1231690994366248",
+  },
+
+  {
+    city: "Budapest",
+    country: "Hungary",
+    imageId: "390907795886776",
+  },
+
+  {
+    city: "Riyadh",
+    country: "Saudi Arabia",
+    imageId: "1085558002338382",
+  },
+
+  {
+    city: "Tallinn",
+    country: "Estonia",
+    imageId: "956102871791868",
+  },
+
+  {
+    city: "Vilnius",
+    country: "Lithuania",
+    imageId: "487893775688439",
+  },
+
+  {
+    city: "Casablanca",
+    country: "Morocco",
+    imageId: "304834001135462",
+  },
+
+  {
+    city: "Kuala Lumpur",
+    country: "Malaysia",
+    imageId: "218038960217796",
+  },
+
+  {
+    city: "Lisbon",
+    country: "Portugal",
+    imageId: "229433359308766",
+  },
 ];
 
 
 
 
-// 487893775688439;
-// вильнюс;
-// литва;
-
-
-// 304834001135462
-
-// марокко касабанкаё

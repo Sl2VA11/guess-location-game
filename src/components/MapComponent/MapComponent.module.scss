@@ -1,8 +1,10 @@
 .mapContainer {
   position: absolute;
-  left: 0;
+  left: 50%;
   bottom: 0;
   z-index: 100;
+
+  transform: translate(-50%);
 }
 
 .mapContainerFull {
@@ -11,5 +13,5 @@
 }
 .mapContainerSmall {
   height: 300px;
-  width: 30%;
+  width: 90%;
 }
