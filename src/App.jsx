@@ -9,6 +9,8 @@ import lennon from "./images/lennon-wall.png";
 import nyc from "./images/nyc.png";
 import peace from "./images/peace.png";
 import zabou from "./images/zabou.png";
+// libraries 
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const images = [barcelona, berlin, lennon, nyc, peace, zabou];
@@ -27,6 +29,8 @@ function App() {
       ) : (
         <GameRoutes />
       )}
+
+      <Analytics/>
     </div>
   );
 }

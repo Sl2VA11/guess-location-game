@@ -33,11 +33,12 @@ export function Viewer({
   };
 
   return (
-    <div>
+    <div className={style.gameBackground}>
       <div
         ref={containerRef}
         id="mapillary-viewer"
-        style={{ width: "100%", height: "100vh" }}
+        className={style.mapillaryViewer}
+      
       ></div>
       <p className={style.quantity}>
         {currentStepData?.currentStep}/{currentCitiesQuantity}

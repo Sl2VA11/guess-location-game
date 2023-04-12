@@ -284,4 +284,106 @@ export const initialCoordinatesMediumLevel = [
       },
     },
   },
+
+  {
+    city: "Amman",
+    country: "Jordan",
+    imageId: "519417429859157",
+    translations: {
+      city: {
+        fr: "Amman",
+        uk: "Амман",
+        es: "Ammán",
+        en: "Amman",
+      },
+      country: {
+        fr: "Jordanie",
+        uk: "Йорданія",
+        es: "Jordania",
+        en: "Jordan",
+      },
+    },
+  },
+
+  {
+    city: "Vilnius",
+    country: "Lithuania",
+    imageId: "513778699654050",
+    translations: {
+      city: {
+        fr: "Vilnius",
+        uk: "Вільнюс",
+        es: "Vilna",
+        en: "Vilnius",
+      },
+      country: {
+        fr: "Lituanie",
+        uk: "Литва",
+        es: "Lituania",
+        en: "Lithuania",
+      },
+    },
+  },
+
+  {
+    city: "Riga",
+    country: "Latvia",
+    imageId: "515607582793512",
+    translations: {
+      city: {
+        fr: "Riga",
+        uk: "Рига",
+        es: "Riga",
+        en: "Riga",
+      },
+      country: {
+        fr: "Lettonie",
+        uk: "Латвія",
+        es: "Letonia",
+        en: "Latvia",
+      },
+    },
+  },
+
+  {
+    city: "Yerevan",
+    country: "Armenia",
+    imageId: "1202001623569131",
+    translations: {
+      city: {
+        fr: "Erevan",
+        uk: "Єреван",
+        es: "Ereván",
+        en: "Yerevan",
+      },
+      country: {
+        fr: "Lettonie",
+        uk: "Вірменія",
+        es: "Armenia",
+        en: "Armenia",
+      },
+    },
+  },
+
+  {
+    city: "Asunción",
+    country: "Paraguay",
+    imageId: "1202001623569131",
+    translations: {
+      city: {
+        fr: "Asunción",
+        uk: "Асунсьйон",
+        es: "Asunción",
+        en: "Asunción",
+      },
+      country: {
+        fr: "Paraguay",
+        uk: "Парагвай",
+        es: "Paraguay",
+        en: "Paraguay",
+      },
+    },
+  },
 ];
+
+
