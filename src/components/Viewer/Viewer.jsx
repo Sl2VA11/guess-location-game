@@ -13,8 +13,9 @@ export function Viewer({
   containerRef,
   setCurrentGameStep,
   currentCitiesQuantity,
+  level,
 }) {
-  const [state, setState] = useViewerState(currentStepData);
+  const [state, setState] = useViewerState(currentStepData, level);
 
   const handleInputChange = useCallback((e) => {
     setState((prevState) => ({ ...prevState, inputAnswer: e.target.value }));

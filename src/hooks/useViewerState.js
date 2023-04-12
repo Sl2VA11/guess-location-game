@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { isLocationInCountry } from "../api/fetchImageMetadata";
-import { isAnswerCorrect } from "../helpers/isInputAnswerCorrect";
+import { isInputAnswerCorrect } from "../helpers/isInputAnswerCorrect";
 
-export const useViewerState = (currentStepData) => {
+export const useViewerState = (currentStepData,level) => {
   const [state, setState] = useState({
     isOpenMap: false,
     isOpenModal: false,
@@ -19,7 +19,7 @@ export const useViewerState = (currentStepData) => {
     if (acceptAnswer && !clickedPosition) {
       // input answer
 
-      const isCorrect = isAnswerCorrect(inputAnswer);
+      const isCorrect = isInputAnswerCorrect(inputAnswer, level);
       setState((prevState) => ({
         ...prevState,
         isInputAnswerCorrect: isCorrect,

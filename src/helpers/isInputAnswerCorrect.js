@@ -1,7 +1,7 @@
 import { initialCoordinatesEasyLevel } from "../levels/easy-level";
 import { initialCoordinatesMediumLevel } from "../levels/medium-level";
 
-export function isAnswerCorrect(inputAnswer) {
+export function isInputAnswerCorrect(inputAnswer,level) {
   const inputAnswerLowerCase = inputAnswer.toLowerCase();
 
   const checkTranslations = (translations) => {
@@ -13,18 +13,21 @@ export function isAnswerCorrect(inputAnswer) {
     return false;
   };
 
-  const allCoordinates = [
-    ...initialCoordinatesEasyLevel,
-    ...initialCoordinatesMediumLevel,
-  ];
+  const allCoordinates = {
+    easy: initialCoordinatesEasyLevel,
+    medium: initialCoordinatesMediumLevel,
+  }
 
-  for (const coordinate of allCoordinates) {
-    if (
-      coordinate.country.toLowerCase() === inputAnswerLowerCase ||
-      checkTranslations(coordinate.translations.country)
-    ) {
-      return true;
-    }
+   for (const coordinate of allCoordinates[level]) {
+     console.log(coordinate.country.toLowerCase());
+    
+      if (
+        coordinate.country.toLowerCase() === inputAnswerLowerCase ||
+        checkTranslations(coordinate.translations.country)
+      ) {
+        return true;
+      }
+    
   }
 
   return false;
